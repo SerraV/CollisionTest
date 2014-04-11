@@ -1,0 +1,42 @@
+#:kivy 1.8.0
+
+<WordLabel>
+    pos: (500,500)
+    size_hint: (0,0)
+    do_rotation: False
+    size: lbl.size
+    l: my_label
+
+    Label:
+        id: my_label
+        color: 0.5,0.5,0.5,1
+    	font_size: 10
+        size_hint: (0,0)
+
+        text: root.my_string 
+        size: lbl.texture_size
+
+<Root>
+    f: my_float
+    c: my_circle
+    orientation: 'vertical'
+    FloatLayout:
+        id: my_float
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        AnchorLayout:
+            id: my_circle
+            anchor_x:'center'
+            anchor_y:'center'
+            canvas:
+                Color:
+                    rgba: 0.2,0.6,0.8,0.8
+                Ellipse:
+                    segments: 3600
+                    pos: ((self.center[0]-self.height*0.45),(self.center[1]-self.height*0.45))
+                    size: (self.height*0.90, self.height*0.90)
