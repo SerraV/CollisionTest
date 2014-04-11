@@ -14,8 +14,10 @@ class WordLabel(Scatter):
     l = ObjectProperty('')
 
     def on_pos(self, instance, position):
-        if self.collide_widget(Root.c):
-            print 'is colliding'
+        root = self.parent
+        if root is not None:
+            if self.collide_widget(root.c):
+                print 'is colliding'
 
     def __init__(self, text, **kw):
         super(WordLabel, self).__init__(**kw)
